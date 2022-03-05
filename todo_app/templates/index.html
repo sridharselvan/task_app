@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block head %} {{ super() }}
+<link
+    rel="stylesheet"
+    type="text/css"
+    href="{{ url_for('static', filename='style_extended.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="container text-center home-heading">
+    <div class="row">
+        <div class="col">
+            <h2>Organize it all with Todoist</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-sm btn-outline-success" href="{{ url_for('auth.signup') }}">
+                Get Started
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img src="{{ url_for('static', filename='img/todo-img.png') }}" class="introSection">
+        </div>
+    </div>
+</div>
+{% endblock %}

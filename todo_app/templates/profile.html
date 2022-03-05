@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block head %} {{ super() }}
+<link
+	rel="stylesheet"
+	type="text/css"
+	href="{{ url_for('static', filename='style_extended.css') }}"
+/>
+{% endblock %}
+{% block content %}
+<div class="container home-heading">
+	<div class="row">
+		<h4 class="d-flex justify-content-end">Welcome {{name}}!</h4>
+	</div>
+	<div class="row">
+		{% if todo_list %}
+			<table class="table table-sm table-responsive">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Title>
+						<th scope="col">Content</th>
+						<th scope="col">Created Date</th>
+						<th scope="col">Modified Date</th>
+						<th scope="col">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for item in todo_list %}
+						<tr>
+							<th scope="row">{{ loop.index }}</th>
+							<td>{{ item.title }}</td>
+							<td>{{ item.content }}</td>
+							<td>{{ item.created_dt.strftime('%m/%d/%Y %H:%M') }}</td>
+							<td>{{ item.upd_dt.strftime('%m/%d/%Y %H:%M') }}</td>
+							<td colspan="2">
+								<a href="{{ url_for('main.update_task', task_id=item.id) }}"
+								   class="btn btn-outline-primary"
+								   role="button">
+									Edit
+								</a>
+								<a href="{{ url_for('main.delete_task', task_id=item.id) }}" class="btn btn-outline-danger" role="button">Delete</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% endif %}
+		{% if not todo_list %}
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">All clear</h5>
+					<p class="card-text">
+						Looks like everything's organized in the right place.
+					</p>
+    				<a href="{{ url_for('main.add_task') }}" class="btn btn-danger">Add Task</a>
+  				</div>
+			</div>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

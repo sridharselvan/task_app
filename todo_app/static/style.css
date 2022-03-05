@@ -1,0 +1,19 @@
+.navbar-custom {
+    background-color: #ffb3b3;
+}
+/* Modify brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color:  #fff7f6;
+}
+
+.home-heading{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.introSection{
+    inline-size: 90%;
+    max-inline-size: 1256px;
+}
+
