@@ -4,4 +4,4 @@ flask_sqlalchemy==2.5.1
 Werkzeug==0.16.1
 gunicorn==20.0.4
 simplejson==3.17.2
-itsdangerous
+itsdangerous==2.0.1
